@@ -16,7 +16,7 @@ permissions:
 
 # set an environment variable for use in all the jobs pointing the site_url
 env:
-  site_url: https://astro-demo.birki.io
+  site_url: https://hada.live
 
 jobs:
   # branch-deploy trigger job
@@ -48,7 +48,7 @@ jobs:
           production_environment: "github-pages"
           environment_targets: "github-pages"
           skip_completing: "true" # we will complete the deployment manually in the 'result' job
-          admins: "GrantBirki" # <--- add your GitHub username here (if you want to use the admins feature)
+          admins: "mechazod" # <--- add your GitHub username here (if you want to use the admins feature)
 
   # build the github-pages site with hugo
   build:
@@ -141,7 +141,7 @@ jobs:
       # if the deployment was successful, add a 'rocket' reaction to the comment that triggered the deployment
       - name: rocket reaction
         if: ${{ steps.deploy-status.outputs.DEPLOY_STATUS != 'failure' }}
-        uses: GrantBirki/comment@v2.0.5
+        uses: mechazod/comment@v2.0.5
         with:
           comment-id: ${{ needs.trigger.outputs.comment_id }}
           reactions: rocket
@@ -149,7 +149,7 @@ jobs:
       # if the deployment failed, add a '-1' (thumbs down) reaction to the comment that triggered the deployment
       - name: failure reaction
         if: ${{ steps.deploy-status.outputs.DEPLOY_STATUS == 'failure' }}
-        uses: GrantBirki/comment@v2.0.5
+        uses: mechazod/comment@v2.0.5
         with:
           comment-id: ${{ needs.trigger.outputs.comment_id }}
           reactions: "-1"

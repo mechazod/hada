@@ -5,9 +5,9 @@ import blog from './blog';
 
 const CONFIG = {
   // The name of the website
-  name: 'AstroWind',
+  name: 'Hada',
   // The origin of the website (without trailing slash)
-  origin: 'https://astro-demo.birki.io',
+  origin: 'https://hada.live',
   // The base pathname of the website
   basePathname: '/',
   // If the website uses trailing slashes in the URLs
